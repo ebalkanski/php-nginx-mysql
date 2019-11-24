@@ -28,24 +28,28 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 ### Environment configuration
 Configuration is in .env(will be created for you based on .env-dist) and there you can tweak database config and some Docker params.
 
-### Start the Docker ecosystem
-- `mkdir my_project` - create a new project dir.
-- `cd my_project` - get into it.
-- `git clone git@github.com:ebalkanski/php-nginx-mysql.git .` - clone code from repo.
-- `rm -rf .git` - cleanup git data.
-    - You can init a new fresh repo if you want and work with it
+### Start the Docker ecosystem for a first time
+- `mkdir my_project` - create a new project dir
+- `cd my_project` - get into it
+- `git clone git@github.com:ebalkanski/php-nginx-mysql.git .` - clone code from repo
+- `rm -rf .git` - cleanup git data
+    - You can init a new fresh repo if you want and work with it.
 - `make init`
-    - create local Composer dir to share cache
-    - create .env file
-    - build Docker images
-    - install Composer packages
+    - creates local Composer dir to share cache
+    - creates .env file
+    - builds Docker images
+    - installs Composer packages
 - `make up` - start the whole ecosystem
+- open `php-docker.local` in your favourite browser and you should see phpinfo() output there.
 - `docker-compose exec php /bin/bash` - enter the php container.
 - Happy Coding!
 
 ### Stop the Docker ecosystem
-- type `exit` if you are in the php container.
+- type `exit` if you are in the php container
 - `make down`
+
+### Start the Docker ecosystem after being initialized
+- `make up`
 
 ### Rebuild the Docker ecosystem
 - `make build`
