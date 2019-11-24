@@ -53,3 +53,8 @@ Configuration is in .env(will be created for you based on .env-dist) and there y
 
 ### Rebuild the Docker ecosystem
 - `make build`
+
+### Some notes
+- Nginx logs are accessible in ./volumes/nginx/logs
+- MySQL data is persisted in./volumes/mysql
+- You can write code by loading your project in your favourite IDE, but in order to use Composer or to take advantage of pre-commit git hooks you must work in the PHP container.
