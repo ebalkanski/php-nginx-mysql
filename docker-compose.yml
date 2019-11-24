@@ -35,7 +35,8 @@ services:
         container_name: php
         volumes:
             - ./:/var/www/html/
-            - ~/.composer/cache/:/.composer/cache/
+            - ${HOME}/.composer/cache/:/.composer/cache/
             - ${HOME}/.gitconfig:/home/www-data/.gitconfig
+            - ${HOME}/.ssh:/home/www-data/.ssh
         depends_on:
             - db
