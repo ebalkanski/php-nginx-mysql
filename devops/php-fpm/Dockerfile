@@ -98,11 +98,10 @@ RUN if [ ${USER_ID} -ne 0 ] && [ ${GROUP_ID} -ne 0 ]; then \
         /.composer \
 ;fi
 
-
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    bash-completion
-
+    bash-completion \
+    ssh-client
 
 # Custom .bashrc
 ADD ./bashrc/.bashrc /custom-bashrc
