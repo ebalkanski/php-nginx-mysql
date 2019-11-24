@@ -36,6 +36,6 @@ services:
         volumes:
             - ./:/var/www/html/
             - ~/.composer/cache/:/.composer/cache/
-            - ~/.gitconfig:/etc/gitconfig
+            - ${HOME}/.gitconfig:/home/www-data/.gitconfig
         depends_on:
             - db
