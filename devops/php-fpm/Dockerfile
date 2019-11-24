@@ -26,6 +26,8 @@ RUN apt-get update \
     curl \
     unzip \
     git \
+    ssh-client \
+    bash-completion \
   && rm -rf /var/lib/apt/lists/*
 
 # Install various PHP extensions
@@ -97,11 +99,6 @@ RUN if [ ${USER_ID} -ne 0 ] && [ ${GROUP_ID} -ne 0 ]; then \
         /home/www-data \
         /.composer \
 ;fi
-
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    bash-completion \
-    ssh-client
 
 # Custom .bashrc
 ADD ./bashrc/.bashrc /custom-bashrc
