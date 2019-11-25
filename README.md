@@ -21,7 +21,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 ### Prerequisites
 - You must have Git installed.
 - You must add the proper virtual host record to your /etc/hosts file, i.e.
-    - 127.0.0.1	php-docker.local
+    - 127.0.0.1	php.local
     - In case you want a different name, you must specify it in ./devops/nginx/conf.d/server.conf
 - You must be able to execute Makefiles via 'make' command. Otherwise you must take a look at ./Makefile and execute the commands by hand. 
 
@@ -40,7 +40,7 @@ Configuration is in .env(will be created for you based on .env-dist) and there y
     - builds Docker images
     - installs Composer packages
 - `make up` - start the whole ecosystem
-- open `php-docker.local` in your favourite browser and you should see phpinfo() output there.
+- open `php.local` in your favourite browser and you should see phpinfo() output there.
 - `docker-compose exec php /bin/bash` - enter the php container.
 - Happy Coding!
 
