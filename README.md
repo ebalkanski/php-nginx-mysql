@@ -16,7 +16,7 @@ The major tool which is used is GrumPHP https://github.com/phpro/grumphp and it 
 
 The upper tools are fired in a pre-commit git hook and are configured by the following files in main dir:
 - grumphp.yml
-- rulesets.xml
+- phpmd_rulesets.xml
 
 ### Prerequisites
 - You must have Git installed.
@@ -30,8 +30,8 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 - In case your uid and gid are not 1000 but say 1001, you must change the USER_ID and GROUP_ID vars in .env-dist before launching setup.
 - Your images will be prefixed with COMPOSE_PROJECT_NAME env var, e.g. `php_stack_web` for the Nginx images. You can change this as per your preference.
 - Nginx logs are accessible in ./volumes/nginx/logs
-- MySQL data is persisted via a Docker volume
-- Composer cache is persisted via a Docker volume
+- MySQL data is persisted via a Docker volume.
+- Composer cache is persisted via a Docker volume.
 - You can write code by loading your project in your favourite IDE, but in order to use Composer or to take advantage of the code quality tools you must work in the PHP container.
 
 ### Start the Docker ecosystem for a first time
