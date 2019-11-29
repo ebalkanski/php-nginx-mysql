@@ -1,6 +1,5 @@
 init:
 	cp .env-dist .env &&\
-	mkdir -p ~/.composer/cache &&\
 	docker-compose build --pull --no-cache &&\
 	docker-compose run --rm php composer install &&\
 	docker-compose down
@@ -13,3 +12,6 @@ up:
 
 down:
 	docker-compose down
+
+php:
+	docker-compose exec php /bin/bash
