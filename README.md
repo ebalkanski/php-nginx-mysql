@@ -27,7 +27,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 
 ### Configuration
 - Configuration is in .env(will be created for you based on .env-dist) and there you can tweak database config and some Docker params.
-- In case your uid and gid are not 1000 but say 1001, you must change the USER_ID and GROUP_ID vars in .env-dist before launching setup.
+- In case your uid and gid are not 1000 but say 1001, you must change the USER_ID and GROUP_ID vars in .env-dist before launching setup. Type the `id` command in your terminal in order to find out.
 - Your images will be prefixed with COMPOSE_PROJECT_NAME env var, e.g. `php_stack_web` for the Nginx images. You can change this as per your preference.
 - Nginx logs are accessible in ./volumes/nginx/logs
 - MySQL data is persisted via a Docker volume.
