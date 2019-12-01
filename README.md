@@ -1,5 +1,5 @@
-# A bunch of Docker containers to make your life easier ;)
-### PHP dev environment with basic tools setup
+# PHP dev environment
+### Setup
 - PHP 7.3
 - Nginx
 - MySQL 5.7
