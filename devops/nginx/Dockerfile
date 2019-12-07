@@ -5,3 +5,4 @@ EXPOSE 443
 
 COPY ./conf.d/upstream.conf /etc/nginx/conf.d/
 COPY ./conf.d/server.conf /etc/nginx/conf.d/
+COPY ./ssl/ /etc/ssl/
