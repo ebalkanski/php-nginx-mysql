@@ -19,7 +19,10 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 - phpmd_rulesets.xml
 
 ### Prerequisites
-- You must have Git installed.
+- You must have the following tools installed:
+    - Git
+    - Docker - https://docs.docker.com/install/linux/docker-ce/ubuntu/
+    - Docker Compose - https://docs.docker.com/compose/install/
 - You must add the proper virtual host record to your /etc/hosts file, i.e.
     - 127.0.0.1	php.local
     - In case you want a different name, you must specify it in ./devops/nginx/conf.d/server.conf
@@ -45,7 +48,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
     - installs Composer packages
 - `make up` - start the whole ecosystem
 - `docker-composer ps` - verify all containers are up and running
-- open `php.local` in your favourite browser and you should see phpinfo() output there.
+- open `http://php.local` in your favourite browser and you should see phpinfo() output there.
 - `docker-compose exec php /bin/bash` - enter the php container.
 - Happy Coding!
 
