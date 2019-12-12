@@ -30,7 +30,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 
 ### Configuration
 - Configuration is in .env(will be created for you based on .env-dist) and there you can tweak database config and some Docker params.
-- In case your uid and gid are not 1000 but say 1001, you must change the USER_ID and GROUP_ID vars in .env-dist before launching setup. Type the `id` command in your terminal in order to find out.
+- In case your uid and gid are not 1000 but say 1001, you must change the USER_ID and GROUP_ID vars in .env file. Type the `id` command in your terminal in order to find out.
 - Your images will be prefixed with COMPOSE_PROJECT_NAME env var, e.g. `php_stack_web` for the Nginx images. You can change this as per your preference.
 - Nginx logs are accessible in ./volumes/nginx/logs
 - MySQL data is persisted via a Docker volume.
@@ -42,8 +42,9 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 - `cd my_project` - get into it
 - `git clone https://github.com/ebalkanski/php-nginx-mysql.git .` - clone code from repo
 - `rm -rf .git` - cleanup git data. Now you can init a new fresh repo if you want and work with it.
+- `cp .env-dist .env` - create the .env file
+- Now you would want to run `id` command and set USER_ID and GROUP_ID env vars in .env file as per your needs.
 - `make init`
-    - creates .env file
     - builds Docker images and volumes
     - installs Composer packages
 - `make up` - start the whole ecosystem
@@ -51,6 +52,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 - open `http://php.local` in your favourite browser and you should see phpinfo() output there.
 - `docker-compose exec php /bin/bash` - enter the php container.
 - Happy Coding!
+    - On first commit PHPStan will complain that it cannot autoload phpnit files. Just ignore this and commit again, it will work.
 
 ### Useful commands
 - `make up` - starts all containers

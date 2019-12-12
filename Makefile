@@ -1,5 +1,4 @@
 init:
-	cp .env-dist .env &&\
 	docker-compose build --pull --no-cache &&\
 	docker-compose run --rm php composer install &&\
 	docker-compose down
