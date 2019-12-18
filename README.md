@@ -48,7 +48,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
     - builds Docker images and volumes
     - installs Composer packages
 - `make up` - start the whole ecosystem
-- `docker-composer ps` - verify all containers are up and running
+- `docker-compose ps` - verify all containers are up and running
 - open `http://php.local` in your favourite browser and you should see phpinfo() output there.
 - `docker-compose exec php /bin/bash` - enter the php container.
 - Happy Coding!
