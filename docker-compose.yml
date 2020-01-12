@@ -31,6 +31,7 @@ services:
         volumes:
             - ./:/var/www/app/
             - ${HOME}/.gitconfig:/home/www-data/.gitconfig
+            - ${HOME}/.git-credentials:/home/www-data/.git-credentials
             - ${HOME}/.ssh:/home/www-data/.ssh
             - composer_cache:/.composer/cache/
 

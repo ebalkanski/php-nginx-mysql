@@ -26,12 +26,11 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 - You must add the proper virtual host record to your /etc/hosts file, i.e.
     - 127.0.0.1	php.local
     - In case you want a different name, you must specify it in ./devops/nginx/conf.d/server.conf
-- You must be able to execute Makefiles via 'make' command. Otherwise you must take a look at ./Makefile and execute the commands by hand. You may try to install make via `sudo apt-get install make` if you don't have it.
 
 ### Configuration
 - Configuration is in .env(will be created for you based on .env-dist) and there you can tweak database config and some Docker params.
 - In case your uid and gid are not 1000 but say 1001, you must change the USER_ID and GROUP_ID vars in .env file. Type the `id` command in your terminal in order to find out.
-- Your images will be prefixed with COMPOSE_PROJECT_NAME env var, e.g. `php_stack_web` for the Nginx images. You can change this as per your preference.
+- When created, your containers' names will be prefixed with COMPOSE_PROJECT_NAME env var, e.g. `php7_stack`. You can change this as per your preference.
 - Nginx logs are accessible in ./volumes/nginx/logs
 - MySQL data is persisted via a Docker volume.
 - Composer cache is persisted via a Docker volume.
@@ -44,18 +43,13 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 - `rm -rf .git` - cleanup git data. Now you can init a new fresh repo if you want and work with it.
 - `cp .env-dist .env` - create the .env file
 - Now you would want to run `id` command and set USER_ID and GROUP_ID env vars in .env file as per your needs.
-- `make init`
-    - builds Docker images and volumes
-    - installs Composer packages
-- `make up` - start the whole ecosystem
+- `docker-compose build` - build Docker images and volumes
+- `docker-compose run --rm php-base composer install` - install Composer packages
+- `docker-compose up -d` - start the whole ecosystem
 - `docker-compose ps` - verify all containers are up and running
 - open `http://php.local` in your favourite browser and you should see phpinfo() output there.
-- `docker-compose exec php /bin/bash` - enter the php container.
-- Happy Coding!
-    - On first commit PHPStan will complain that it cannot autoload phpnit files. Just ignore this and commit again, it will work.
+- `docker-compose exec php-dev /bin/bash` - enter the php container.
 
 ### Useful commands
-- `make up` - starts all containers
-- `make php` - hook into the PHP container
-- `make down` - stops the running containers
-- `make build` - rebuild images
+- `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container` - gets container's IP
+- `docker kill -s HUP container` - can be used to reload Nginx configuration dynamically
