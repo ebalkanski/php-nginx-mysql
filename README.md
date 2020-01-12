@@ -25,7 +25,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
     - Docker Compose - https://docs.docker.com/compose/install/
 - You must add the proper virtual host record to your /etc/hosts file, i.e.
     - 127.0.0.1	php.local
-    - In case you want a different name, you must specify it in ./devops/nginx/conf.d/server.conf
+    - In case you want a different name, you must specify it in ./devops/nginx/dev/config/server.conf
 
 ### Configuration
 - Configuration is in .env(will be created for you based on .env-dist) and there you can tweak database config and some Docker params.
