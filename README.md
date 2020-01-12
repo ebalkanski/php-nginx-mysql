@@ -44,7 +44,7 @@ The upper tools are fired in a pre-commit git hook and are configured by the fol
 - `cp .env-dist .env` - create the .env file
 - Now you would want to run `id` command and set USER_ID and GROUP_ID env vars in .env file as per your needs.
 - `docker-compose build` - build Docker images and volumes
-- `docker-compose run --rm php-base composer install` - install Composer packages
+- `docker-compose run --rm php-dev composer install` - install Composer packages
 - `docker-compose up -d` - start the whole ecosystem
 - `docker-compose ps` - verify all containers are up and running
 - open `http://php.local` in your favourite browser and you should see phpinfo() output there.
