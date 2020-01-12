@@ -18,7 +18,7 @@ RUN apt-get update \
 RUN pecl install xdebug \
   && docker-php-ext-enable xdebug
 
-COPY conf/php.ini /usr/local/etc/php/conf.d/zz-php.ini
+COPY config/php.ini /usr/local/etc/php/conf.d/zz-php.ini
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- \

@@ -49,6 +49,6 @@ RUN docker-php-ext-configure bcmath --enable-bcmath \
   && pecl install redis \
   && docker-php-ext-enable redis
 
-COPY conf/php.ini /usr/local/etc/php/conf.d/z-php.ini
+COPY config/php.ini /usr/local/etc/php/conf.d/z-php.ini
 
 WORKDIR /var/www/app
