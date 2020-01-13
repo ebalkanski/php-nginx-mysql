@@ -8,7 +8,7 @@ services:
 #            - ${NGINX_HOST_PORT}:80
 #            - ${NGINX_HOST_SSL_PORT}:443
     web-dev:
-        image: web-dev:${APP_VERSION}
+        image: ${COMPOSE_PROJECT_NAME}-web-dev:${APP_VERSION}
         build: ./devops/nginx/dev
         ports:
             - ${NGINX_HOST_PORT}:80
@@ -20,11 +20,11 @@ services:
         depends_on:
             - php-dev
     php-base:
-        image: php7-base:${APP_VERSION}
+        image: ${COMPOSE_PROJECT_NAME}-php-base:${APP_VERSION}
         build:
             context: devops/php-fpm/base
     php-dev:
-        image: php7-dev:${APP_VERSION}
+        image: ${COMPOSE_PROJECT_NAME}-php-dev:${APP_VERSION}
         build:
             context: devops/php-fpm/dev
             args:
@@ -38,7 +38,7 @@ services:
             - ${HOME}/.ssh:/home/www-data/.ssh
             - composer_cache:/.composer/cache/
     db-dev:
-        image: db-dev:${APP_VERSION}
+        image: ${COMPOSE_PROJECT_NAME}-db-dev:${APP_VERSION}
         build:
             context: devops/mysql/dev
             args:
