@@ -28,7 +28,7 @@ services:
         build:
             context: devops/php-fpm/dev
             args:
-                BASE_IMAGE: php7-base:${APP_VERSION}
+                BASE_IMAGE: ${COMPOSE_PROJECT_NAME}-php-base:${APP_VERSION}
                 USER_ID: ${USER_ID}
                 GROUP_ID: ${GROUP_ID}
         volumes:
